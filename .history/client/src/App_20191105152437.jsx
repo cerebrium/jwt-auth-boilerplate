@@ -86,7 +86,7 @@ class App extends React.Component {
         <header>
           <h1>Welcome to my Site!</h1>
           <div className='content-box'>
-            {contents}
+
           </div>
         </header>
       </div>

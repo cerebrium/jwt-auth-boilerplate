@@ -25,7 +25,6 @@ class App extends React.Component {
     } else {
       axios.post('/auth/me/from/token', {token})
       .then( response => {
-        // if token is found, verify it on the back end
         if (response.data.type === 'error') {
           localStorage.removeItem('mernToken')
           this.setState({
@@ -34,62 +33,18 @@ class App extends React.Component {
             errorMessage: response.data.message
           })
         } else {
+          // if token is found, verify it on the back end
           // if verified store it in local storage and state
-          localStorage.setItem('mernToken', response.data.token)
-          this.setState({
-            token: response.data.token,
-            user: response.data.user
-          })
+
         }
       })
     }
-
-    componentDidMount = () => {
-      this.checkForLocalToken()
-    }
-
-    liftToken = ({token, user}) => {
-      this.setState({
-        token,
-        user
-      })
   }
 
-  logout = () => {
-    localStorage.removeItem('mernToken')
-    this.setState({
-      token: '',
-      user: null
-    })
-  }
-  }
 
   render () {
-    let contents;
-    if (this.state.user) {
-      contents = (
-        <>
-          <p>Hello: {this.state.user.name}</p>
-        </>
-      )
-    } else {
-      contents = (
-        <>
-          <Signup liftToken={this.liftToken} />
-          <Login liftToken={this.liftToken} />
-        </>
-      )
-    }
-
     return (
-      <div className='app'>
-        <header>
-          <h1>Welcome to my Site!</h1>
-          <div className='content-box'>
-            {contents}
-          </div>
-        </header>
-      </div>
+
     )
   }
 }

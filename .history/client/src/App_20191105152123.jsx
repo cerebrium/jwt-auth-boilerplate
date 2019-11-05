@@ -72,24 +72,9 @@ class App extends React.Component {
           <p>Hello: {this.state.user.name}</p>
         </>
       )
-    } else {
-      contents = (
-        <>
-          <Signup liftToken={this.liftToken} />
-          <Login liftToken={this.liftToken} />
-        </>
-      )
     }
-
     return (
-      <div className='app'>
-        <header>
-          <h1>Welcome to my Site!</h1>
-          <div className='content-box'>
-            {contents}
-          </div>
-        </header>
-      </div>
+
     )
   }
 }
