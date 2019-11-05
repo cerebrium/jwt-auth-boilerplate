@@ -26,12 +26,12 @@ router.post('/signup', (req, res) => {
                     // sign a token
                     const token = jwt.sign(user.toObject(), process.env.JWT_SECRET, {
                         expiresIn: '7d'
-                    })
+                    });
                     // return the token
                     res.status(200).json({
                         type: 'success',
                         user: user.toObject(),
-                        token
+                        token: 
                     })
                 }
             })
@@ -86,29 +86,11 @@ router.post('/me/from/token', (req, res) => {
         jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
             if (err) {
                 // if any errors during verifictio, return an error
-                res.json({
-                    type: 'error',
-                    message: 'invalid token, please log in again'
-                })
-            } else {
-                // if token is valid, use token to look up the user
-                User.findById(user._id, (err, user) => {
-                    if (err) {
-                        res.json({
-                            type: 'error',
-                            message: 'Database error during validation'
-                        })
-                    } else {
-                        res.json({
-                            type: 'success',
-                            user: user.toObject(),
-                            token
-                        })
-                    }
-                })
+                return 
             }
         })
     }
+            // if token is valid, use token to look up the user
                 // if no user return error
                 // if user, return user and token to front
 });

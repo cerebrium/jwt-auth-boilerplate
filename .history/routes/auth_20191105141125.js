@@ -31,7 +31,7 @@ router.post('/signup', (req, res) => {
                     res.status(200).json({
                         type: 'success',
                         user: user.toObject(),
-                        token
+                        token: 
                     })
                 }
             })

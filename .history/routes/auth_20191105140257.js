@@ -26,12 +26,12 @@ router.post('/signup', (req, res) => {
                     // sign a token
                     const token = jwt.sign(user.toObject(), process.env.JWT_SECRET, {
                         expiresIn: '7d'
-                    })
+                    });
                     // return the token
                     res.status(200).json({
                         type: 'success',
                         user: user.toObject(),
-                        token
+                        token: 
                     })
                 }
             })
@@ -97,12 +97,6 @@ router.post('/me/from/token', (req, res) => {
                         res.json({
                             type: 'error',
                             message: 'Database error during validation'
-                        })
-                    } else {
-                        res.json({
-                            type: 'success',
-                            user: user.toObject(),
-                            token
                         })
                     }
                 })
