@@ -25,4 +25,4 @@ app.use('/auth', require('./routes/auth'));
 
 app.listen(process.env.PORT, () => {
     console.log(`listening on port: ${process.env.PORT}`)
-});
+})

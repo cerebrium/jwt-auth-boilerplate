@@ -20,9 +20,5 @@ db.on('error', (err) => {
     console.log(`Database Error: \n${err}`)
 })
 
-// mounting
-app.use('/auth', require('./routes/auth'));
 
-app.listen(process.env.PORT, () => {
-    console.log(`listening on port: ${process.env.PORT}`)
-});
+app.listen(3001)
