@@ -86,7 +86,7 @@ class App extends React.Component {
           <p>Hello: {this.state.user.name}</p>
           <button onClick={this.handleClick}>Test the protected route</button>
           <button onClick={this.logout}>LOGOUT</button><br />
-          <p>{this.state.lockedResult}</p>
+
         </>
       )
     } else {

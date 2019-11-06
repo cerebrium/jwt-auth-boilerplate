@@ -9,7 +9,6 @@ class App extends React.Component {
     token: '',
     user: null,
     errorMessage: '',
-    lockedResult: '',
 
   }
 
@@ -65,18 +64,6 @@ class App extends React.Component {
     })
   }
   
-  handleClick = (event) => {
-    let config = {
-      headers: {
-        Authorization: `Bearer ${this.state.token}`
-      }
-    }
-    axios.get('/locked/test', config).then( response => {
-      this.setState({
-        lockedResult: response.data
-      })
-    })
-  }
 
   render () {
     let contents;
@@ -85,8 +72,7 @@ class App extends React.Component {
         <>
           <p>Hello: {this.state.user.name}</p>
           <button onClick={this.handleClick}>Test the protected route</button>
-          <button onClick={this.logout}>LOGOUT</button><br />
-          <p>{this.state.lockedResult}</p>
+          <button onClick={this.logout}>LOGOUT</button>
         </>
       )
     } else {

@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const expressJWT = require('express-jwt');
-const helmet = require('helmet')
 
 // app
 const app = express();
@@ -10,7 +9,6 @@ const app = express();
 // middleware
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use(helmet())
 
 // mongoose stuff
 mongoose.connect(process.env.MONGODB_URL, {useNewUrlParser: true, useUnifiedTopology: true});
